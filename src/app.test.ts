@@ -1,4 +1,4 @@
-import { Character } from './app';
+import { Character } from './index';
 describe('first', () => {
   test('should first', () => {
     const char = new Character('Luis XVI', 'Austria', 75);
