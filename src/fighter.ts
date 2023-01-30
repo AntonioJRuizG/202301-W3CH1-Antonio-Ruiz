@@ -1,4 +1,4 @@
-import { Character } from './app';
+import { Character } from './index';
 
 export class Fighter extends Character {
   // eslint-disable-next-line max-params

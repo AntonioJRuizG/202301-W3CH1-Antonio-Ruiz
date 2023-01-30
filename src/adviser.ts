@@ -1,4 +1,4 @@
-import { Character } from './app';
+import { Character } from './index';
 
 export class Adviser extends Character {
   constructor(
