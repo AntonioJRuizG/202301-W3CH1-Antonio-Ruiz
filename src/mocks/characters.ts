@@ -10,9 +10,9 @@ import { Squire } from '../models/squire';
 // Import { Taskstructure } from '../tasks';
 
 export const mockCharacters: Character[] = [
-  new King('Jofrey', 'Barathon', 23, 2),
+  new King('Joffrey', 'Barathon', 23, 2),
   new Fighter('Jaime', 'Lannister', 22, 'sword', 7.8),
-  new Fighter('Daenery', 'Targaryen ', 24, 'Dagger', 2),
+  new Fighter('Daenerys', 'Targaryen ', 24, 'Dagger', 2),
 ];
 
 mockCharacters.push(new Adviser('Tyrion', 'Lannister', 30, mockCharacters[2]));

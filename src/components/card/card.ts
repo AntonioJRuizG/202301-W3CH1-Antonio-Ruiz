@@ -1,7 +1,7 @@
-// Aqui tenemos un componente
 import { Component, InsertPosition } from '../component/component';
 
-// ESTO ES LA CLASE CONCRETA
+import { mockCharacters } from '../../mocks/characters';
+
 export class Card extends Component {
   // Va a tener un selector, un template que depende del header, y un mtodo template
   // eslint-disable-next-line no-unused-vars
@@ -12,17 +12,24 @@ export class Card extends Component {
   }
 
   private createTemplate() {
-    return `
+    let characterCard = '';
+
+    mockCharacters.forEach((char) => {
+      characterCard += `
     <li class="character col">
         <div class="card character__card">
 
 
-    <img src="img/no-one.jpg" alt="Nombre y familia del personaje" class="character__picture card-img-top" />
+    <img src="../images/${char.name.toLowerCase()}.jpg" alt="${char.name} ${
+        char.family
+      }" class="character__picture card-img-top" />
           <div class="card-body">
-            <h2 class="character__name card-title h4">Nombre y familia</h2>
+            <h2 class="character__name card-title h4">${char.name} ${
+        char.family
+      }</h2>
             <div class="character__info">
               <ul class="list-unstyled">
-                <li>Edad: X años</li>
+                <li>Edad: ${char.age} años</li>
                 <li>
                   Estado:
                   <i class="fas fa-thumbs-down"></i>
@@ -40,8 +47,9 @@ export class Card extends Component {
                 <li>Sirve a: X</li>
               </ul>
               <div class="character__actions">
-                <button class="character__action btn">habla</button>
-                <button class="character__action btn">muere</button>
+
+                <button class="${char.name.toLowerCase()}__action btn">habla</button>
+                <button class="${char.name.toLowerCase()}__action btn">muere</button>
               </div>
             </div>
           </div>
@@ -49,14 +57,17 @@ export class Card extends Component {
           </div>
       </li>
   `;
+
+      /* Const charButton = document.querySelector(
+        char.name.toLowerCase()__action .btn'
+      );
+      charButton.addEventListener('click', char.greetings()); */
+    });
+
+    return characterCard;
   }
 
   render(place: InsertPosition) {
     super.render(place);
   }
 }
-
-// EN ALGUN LADO ALGUIEN QUERRÁ ALGUN NEW HEADER
-// new Header('.foo');
-
-// Ver components.html
