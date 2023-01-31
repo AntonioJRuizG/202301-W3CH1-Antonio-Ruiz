@@ -1,4 +1,5 @@
-import { Character } from './models/character';
+import { Character } from './character';
+
 describe('first', () => {
   test('should first', () => {
     const char = new Character('Luis XVI', 'Austria', 75);
