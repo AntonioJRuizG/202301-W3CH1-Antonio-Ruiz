@@ -1,8 +1,5 @@
 /* eslint-disable no-unused-vars */
-/* interface Live {
-  name: string;
-  family: string;
-} */
+
 export class Character {
   private isLive = true;
 
