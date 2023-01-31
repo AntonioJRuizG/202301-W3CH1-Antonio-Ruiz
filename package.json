@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "sass": "sass sass:css --watch",
     "start": "tsc -w",
     "test": "jest --watchAll --coverage",
     "test:prod": "jest --watchAll --coverage --watchAll=false",
@@ -40,5 +41,8 @@
         ]
       }
     }
+  },
+  "dependencies": {
+    "sass": "^1.57.1"
   }
 }
