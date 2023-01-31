@@ -1,23 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
+// Aqui tenemos un componente
+export abstract class Component {
+  // La hacemos abstract para que sea padre de todas las demas clases
+  // Todos los componentes van a tener un selector y un template
+  selector!: string;
+  element!: HTMLElement;
+  template!: string;
+  // Constructor() {}  no se necesita constructor
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GoT</title>
-  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <!-- <script src="src/index.js" type="module"></script> -->
-  <script type="module" src="./src/day2.ts"></script>
-</head>
+  render() {
+    const element = document.querySelector(this.selector) as HTMLElement;
+    element.insertAdjacentHTML('afterbegin', this.template);
+  }
+}
 
-<body>
-  <div id="root"></div>
-  <div class="app container">
+// ESTO ES LA CLASE CONCRETA
+export class Header extends Component {
+  // Va a tener un selector, un template que depende del header, y un mtodo template
+  // eslint-disable-next-line no-unused-vars
+  constructor(public selector: string) {
+    super();
+    this.template = this.createTemplate(); // Delegamos a un método crear el templte para no escribilo aui directamente
+    this.render();
+  }
+
+  private createTemplate() {
+    return ` <div class="app container">
     <ul class="characters-list row list-unstyled">
       <li class="character col">
         <div class="card character__card">
@@ -54,10 +61,11 @@
       </li>
     </ul>
   </div>
-  <div class="comunications">
-    <p class="comunications__text display-1">Una frase que dice alguien</p>
-    <img class="comunications__picture" src="img/no-one.jpg" alt="Nombre y familia del que habla" />
-  </div>
-</body>
+  `;
+  }
+}
 
-</html>
+// EN ALGUN LADO ALGUIEN QUERRÁ ALGUN NEW HEADER
+// new Header('.foo');
+
+// Ver components.html

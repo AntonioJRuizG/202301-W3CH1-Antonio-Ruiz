@@ -1,11 +1,11 @@
-import { Character } from './index';
+import { Character } from './character';
 
 export class Adviser extends Character {
   constructor(
     name: string,
     family: string,
     age: number,
-    public helpsTo: string
+    public helpsTo: Character
   ) {
     super(name, family, age);
     this.helpsTo = helpsTo;
