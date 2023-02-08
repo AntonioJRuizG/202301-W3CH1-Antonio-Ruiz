@@ -6,7 +6,7 @@ export class Card extends Component {
   // Va a tener un selector, un template que depende del header, y un mtodo template
   // eslint-disable-next-line no-unused-vars
   constructor(public selector: string) {
-    super();
+    super(); // EL SUPER ES NECESARIO, CARD ES HIJO DE COMPONENT, LO PRIMERO QUE TIENE QUE HACER ES USAR LAS COSAS DEL PADRE
     this.template = this.createTemplate(); // Delegamos a un método crear el templte para no escribilo aui directamente
     this.render('afterbegin');
   }
@@ -48,15 +48,15 @@ export class Card extends Component {
               </ul>
               <div class="character__actions">
 
-                <button class="${char.name.toLowerCase()}__action btn">habla</button>
-                <button class="${char.name.toLowerCase()}__action btn">muere</button>
+                <button class="character__action__action btn">habla</button>
+                <button class="character__action__action btn">muere</button>
               </div>
             </div>
-          </div>
-          <i class="emoji"></i>
+          </div>          <i class="emoji"></i>
           </div>
       </li>
   `;
+ /*  ${char.name.toLowerCase()} */
 
       /* Const charButton = document.querySelector(
         char.name.toLowerCase()__action .btn'

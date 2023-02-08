@@ -9,6 +9,7 @@ export class MainPage extends Component {
     super();
     this.template = this.createTemplate(); // Delegamos a un método crear el templte para no escribilo aui directamente
     this.render('afterbegin');
+
   }
 
   private createTemplate() {
